@@ -10,5 +10,9 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [],
-  rules: {},
+  rules: {
+    'no-unused-vars': 'error',
+    'import/prefer-default-export': 0,
+    'no-use-before-define': 0,
+  },
 };
