@@ -2,6 +2,8 @@ import FallbackPage from '../pages/FallbackPage';
 import LandingPage from '../pages/MainPage';
 import CartPage from '../pages/CartPage';
 
+const root = document.body.querySelector('#root');
+
 export function router() {
   const routes = {
     '/': LandingPage,
@@ -12,13 +14,8 @@ export function router() {
   const { pathname } = window.location;
 
   if (routes?.[pathname]) {
-    render(routes[pathname]);
+    new routes[pathname](root);
     return;
   }
-  render(routes['/404']);
-}
-
-function render(view) {
-  const app = document.body.querySelector('#root');
-  app.innerHTML = view();
+  new routes['/404'](root);
 }
