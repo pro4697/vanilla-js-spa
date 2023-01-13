@@ -1,13 +1,12 @@
 import { setNumericComma } from '../utils/dataUtils';
 import { requestLocal } from '../utils/request';
 import Component from './Component';
-import ProductModal from './Modal';
-
 const calcDiscountedPrice = (price, discountRate) => {
   const calculatedPrice = price * ((100 - discountRate) / 100);
   const roundDownPrice = Math.floor(calculatedPrice / 1000) * 1000;
   return roundDownPrice;
 };
+import ProductModal from './atomic/Modal';
 
 function getPrice(props) {
   const isDiscount = props.discountRate > 0;
