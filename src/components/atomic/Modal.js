@@ -1,5 +1,5 @@
 import Component from '../Component';
-import ProductDetail from '../ProductDetailV2';
+import ProductDetail from '../ProductDetail';
 
 export default class ProductModal extends Component {
   template() {

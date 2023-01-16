@@ -35,7 +35,7 @@ export default function Select($target) {
 
   const setEvent = () => {
     const $select = $target.querySelector('.custom-select');
-    $select.addEventListener('click', (e) => {
+    $select.addEventListener('click', () => {
       $select.classList.toggle('active');
     });
     document.body.addEventListener('click', (e) => {
