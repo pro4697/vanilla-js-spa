@@ -8,6 +8,9 @@ export default function Select($target) {
     const option = document.createElement('div');
     $select.classList.add('custom-select');
 
+    // copy className
+    $select.classList.add($oldSelect.classList);
+
     // copy option
     option.classList.add('custom-option');
     $oldSelect.children.forEach((e) => {
@@ -52,8 +55,9 @@ export default function Select($target) {
   const onSelect = (callback) => {
     const $options = $target.querySelector('.custom-option');
     $options.addEventListener('click', (e) => {
-      const optionValue = e.target.getAttribute('value');
-      callback(optionValue);
+      const value = e.target.getAttribute('value');
+      const label = e.target.innerText;
+      callback({ value, label });
     });
   };
 

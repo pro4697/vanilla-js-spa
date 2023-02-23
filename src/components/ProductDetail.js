@@ -247,9 +247,9 @@ export default class ProductDetail extends Component {
     if (this.state.data?.option?.length) {
       const select = new Select(this.target);
       select.convertSelectToCustomSelect();
-      select.onSelect((selectedValue) =>
+      select.onSelect((op) =>
         this.setState({
-          selectedOption: mergeArray(this.state.selectedOption, { id: Number(selectedValue), count: 1 }, 'id'),
+          selectedOption: mergeArray(this.state.selectedOption, { id: Number(op.value), count: 1 }, 'id'),
         })
       );
     }

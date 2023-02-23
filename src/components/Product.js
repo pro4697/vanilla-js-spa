@@ -1,16 +1,11 @@
 import { setNumericComma } from '../utils/dataUtils';
 import { requestLocal } from '../utils/request';
 import Component from './Component';
-const calcDiscountedPrice = (price, discountRate) => {
-  const calculatedPrice = price * ((100 - discountRate) / 100);
-  const roundDownPrice = Math.floor(calculatedPrice / 1000) * 1000;
-  return roundDownPrice;
-};
 import ProductModal from './atomic/Modal';
 
 function getPrice(props) {
   const isDiscount = props.discountRate > 0;
-  const price = isDiscount ? calcDiscountedPrice(props.price, props.discountRate) : props.price;
+  const price = isDiscount ? props.discountedPrice : props.price;
 
   return `<div class='product-price'>${setNumericComma(price)}</div>
             <div class='product-price-suffix'>원</div>

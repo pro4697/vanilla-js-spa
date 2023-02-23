@@ -16,7 +16,16 @@ import './style/style.css';
     window.addEventListener('popstate', () => {
       router();
     });
+    // pushState사용시 router처리
+    window.history.pushState = new Proxy(window.history.pushState, {
+      apply: (target, thisArg, argArray) => {
+        target.apply(thisArg, argArray);
+        router();
+      },
+    });
     // dom loaded
     router();
   });
 })();
+HTMLCollection.prototype.forEach = Array.prototype.forEach;
+Element.prototype.forEach = Array.prototype.forEach;
